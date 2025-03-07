@@ -6,12 +6,12 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
-
+keys.js
 node_modules
 dist
 dist-ssr
 *.local
-
+.vscode
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -25,3 +25,4 @@ dist-ssr
 ./backend/node_modules
 ./frontend/node_modules
 ./backend/config/keys.js
+keys.js
