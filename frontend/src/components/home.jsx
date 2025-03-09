@@ -2,18 +2,24 @@ import { useState } from "react";
 import axios from "axios";
 
 export const Home = () => {
-  const [search, setSearch] = useState("q");
+  const [search, setSearch] = useState("");
 
-  const subm = () => {
-    axios
-      .get(`http://127.0.0.1:5000/api/packages/search/${search}`)
-      .then((res) => {
-       return console.log(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+   const subm = () => {
+  if (!search) {
+    console.log("Please enter a tracking ID");
+    return;
+  }
+
+  axios
+    .get(`/api/packages/search/${search}`)
+    .then((res) => {
+      console.log("Response Data:", res.data);return;
+    })
+    .catch((err) => {
+      console.error("Error:", err.response ? err.response.data : err.message);
+    });
+};
+
   const value = (e) => {
     setSearch(e.target.value);
   };
